@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Investment</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            animation: backgroundColorChange 20s infinite; /* Animation for background color */
+            overflow-y: auto; /* Allow vertical scrolling */
+            height: auto; /* Allow height to expand */
+            position: relative; /* Allow child elements to be positioned */
+        }
+
+        @keyframes backgroundColorChange {
+            0%   { background-color: red; color: white; }
+            33%  { background-color: black; color: white; }
+            66%  { background-color: white; color: black; }
+            100% { background-color: red; color: white; }
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 3em;
+            position: relative; /* Allow positioning */
+            animation: slideIn 2s forwards; /* Animation for sliding effect */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%); /* Start off-screen to the left */
+                opacity: 0; /* Start invisible */
+            }
+            to {
+                transform: translateX(0); /* End in the center */
+                opacity: 1; /* Fully visible */
+            }
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .product-list {
+            margin-top: 30px;
+            font-size: 1.2em;
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center the blocks */
+            gap: 20px; /* Space between blocks */
+        }
+
+        .product {
+            border: 2px solid white;
+            padding: 10px;
+            width: 300px; /* Set a fixed width */
+            text-align: left; /* Align text to the left */
+            height: 400px; /* Increased height for more content */
+            display: flex;
+            flex-direction: column; /* Align text vertically */
+            justify-content: space-between; /* Space between elements */
+        }
+
+        .community {
+            margin-top: 70px; /* Increased margin to push down */
+            border: 2px solid white;
+            padding: 10px;
+            width: 640px; /* Wider block for community info */
+            text-align: left; /* Align text to the left */
+            margin-left: auto; /* Center the community block */
+            margin-right: auto; /* Center the community block */
+        }
+
+        .broker-recommendation {
+            margin-top: 70px; /* Increased margin to push down */
+            border: 2px solid white;
+            padding: 20px; /* Increased padding */
+            width: 640px; /* Wider block for broker info */
+            text-align: left; /* Align text to the left */
+            margin-left: auto; /* Center the broker block */
+            margin-right: auto; /* Center the broker block */
+        }
+
+        .learn-more {
+            display: none; /* Hide by default */
+            margin-top: 10px;
+            border-top: 1px solid white;
+            padding-top: 10px;
+        }
+
+        .toggle-button, .enroll-button, .join-button, .contact-button, .inquire-button {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-top: 10px; /* Space above buttons */
+        }
+
+        .enroll-button, .join-button, .contact-button, .inquire-button {
+            background-color: white; /* Background color for button */
+            color: black; /* Text color for button */
+            padding: 10px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-weight: bold; /* Bold text */
+        }
+
+        .about-us {
+            margin-top: 70px; /* Space above About Us section */
+            border: 2px solid white;
+            padding: 20px;
+            width: 640px; /* Set width for About Us */
+            text-align: left; /* Align text to the left */
+            margin-left: auto; /* Center the block */
+            margin-right: auto; /* Center the block */
+        }
+    </style>
+</head>
+<body>
+    <h1>Empire Investment</h1>
+    <p>Growing Your Legacy</p>
+
+    <button class="inquire-button" onclick="inquireAboutBootcamp()">Learn More</button>
+
+    <div class="product-list">
+        <div class="product">
+            <strong>90 Day Bootcamp</strong><br>
+            Price: R1500<br>
+            <span class="toggle-button" onclick="toggleLearnMore('bootcamp-info')">Learn More</span>
+            <div class="learn-more" id="bootcamp-info">
+                <strong>Schedule:</strong><br>
+                - Month 1: 2 classes per week<br>
+                - Month 2: 1 class per week<br>
+                - Month 3: 1 class every second week<br>
+                <strong>Topics Covered:</strong><br>
+                - Trading techniques<br>
+                - Crypto holdings<br>
+                - Building a portfolio<br>
+                - Share handling<br>
+                <strong>Additional Info:</strong><br>
+                All books will be sent to the student.
+            </div>
+            <button class="enroll-button" onclick="enrollBootcamp()">Enroll Now</button>
+        </div>
+        <div class="product">
+            <strong>Copy Trading Service</strong><br>
+            <strong>Requirements:</strong><br>
+            - Must be signed up under the Empire IB link.<br>
+            - Have R400 in your HfM Cent account.<br>
+            <strong>Description:</strong><br>
+            Follow my trades and benefit from my experience while you learn.
+            <button class="enroll-button" onclick="enrollCopyTrading()">Enroll Now</button>
+        </div>
+    </div>
+
+    <div class="community">
+        <h2>Free Signal Community</h2>
+        <strong>Price:</strong> Free<br>
+        Join our group for valuable trading signals and insights.<br>
+        <button class="join-button" onclick="joinCommunity()">Join Now</button>
+    </div>
+
+    <div class="broker-recommendation">
+        <h2>Recommended Broker: HFM</h2>
+        <strong>Join HFM:</strong><br>
+        <button class="join-button" onclick="window.open('https://lp.hfm.com/za/en/trade-forex?refid=30426813', '_blank')">Join for South African Clients</button>
+        <button class="join-button" onclick="window.open('https://lp.hfm.com/sv/en/email-analysis-updates?refid=30428632', '_blank')">Join for Non-South African Clients</button>
+        <div>
+            <a href="https://banner-api.hfm.com/link/e0f4f3b2?regulator=HFZA&refid=30426813" target="_top">
+                <img src="https://banner-api.hfm.com/banner/e0f4f3b2?regulator=HFZA&refid=30426813" width="728" height="90" />
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <button class="contact-button" onclick="contactUs()">Contact Us</button>
+    </div>
+
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>We are a team of traders experts in every aspect required to make you the best in the industry.</p>
+    </div>
+
+    <script>
+        function inquireAboutBootcamp() {
+            const message = "I would like to enquire more about the bootcamp.";
+            const phoneNumber = "+27683293663";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank'); // Open WhatsApp in a new tab
+        }
+
+        function toggleLearnMore(id) {
+            const info = document.getElementById(id);
+            info.style.display = info.style.display === "none" || info.style.display === "" ? "block" : "none";
+        }
+
+        function enrollBootcamp() {
+            const message = "Good day, I would like to enquire about the 90 day bootcamp.";
+            const phoneNumber = "+27653243822";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank'); // Open WhatsApp in a new tab
+        }
+
+        function enrollCopyTrading() {
+            const message = "Hey, I would like to enquire about the copy trading.";
+            const phoneNumber = "+27653243822";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank'); // Open WhatsApp in a new tab
+        }
+
+        function joinCommunity() {
+            const communityLink = "https://chat.whatsapp.com/KHiM3uwE8tpLcuKOAXLVEi";
+            window.open(communityLink, '_blank'); // Open WhatsApp group link in a new tab
+        }
+
+        function contactUs() {
+            alert("Contact us at: +27653243822");
+        }
+    </script>
+</body>
+</html>
